@@ -2,7 +2,7 @@
 ## functions do
 
 ## Write a short comment describing this function
-# Crete object holding matrix x and chached invert matrix 
+## Crete object holding matrix x and chached invert matrix 
 
 makeCacheMatrix <- function(x = matrix()) {
   invx <- NULL
@@ -13,6 +13,7 @@ makeCacheMatrix <- function(x = matrix()) {
   get <- function() x
   setinverse <- function(ix) invx <<- ix
   getinverse <- function() invx
+  # return list object with  getters and setters
   list(set = set, get = get,
        setinverse = setinverse,
        getinverse = getinverse)
@@ -31,6 +32,7 @@ cacheSolve <- function(x, ...) {
     return(ix)
   }
   data <- x$get()
+  ## actual solve matrix
   ix <-solve(data, ...)
   x$setinverse(ix)
   ix
